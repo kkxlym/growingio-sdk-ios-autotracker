@@ -217,7 +217,7 @@ static GrowingSession *currentSession = nil;
     }
     self.latestVisitTime = timestamp;
     // 发送VisitEvent
-    [GrowingEventGenerator generateVisitEvent:timestamp];
+    [GrowingEventGenerator generateVisitEvent:timestamp sessionId:self.sessionId];
 }
 
 - (void)refreshSessionId {

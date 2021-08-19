@@ -31,11 +31,11 @@
 #import "GrowingLogger.h"
 @implementation GrowingEventGenerator
 
-+ (void)generateVisitEvent:(long long)ts
++ (void)generateVisitEvent:(long long)timestamp sessionId:(NSString *_Nullable)sessionId
 {
     [GrowingDispatchManager dispatchInGrowingThread:^{
         GrowingBaseBuilder *builder =
-            GrowingVisitEvent.builder.setTimestamp(ts);
+            GrowingVisitEvent.builder.setTimestamp(timestamp).setSessionId(sessionId);
         [[GrowingEventManager sharedInstance] postEventBuidler:builder];
     }];
 }

@@ -119,7 +119,7 @@
     _eventSequenceId = sequence.eventTypeId;
     GrowingSession *session = [GrowingSession currentSession];
     _userId = session.loginUserId;
-    _sessionId = session.sessionId;
+    _sessionId = _sessionId ?: session.sessionId;
     _latitude = session.latitude;
     _longitude = session.longitude;
     _userKey = session.loginUserKey;
